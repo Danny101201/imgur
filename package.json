@@ -1,0 +1,28 @@
+{
+  "name": "imgur",
+  "version": "1.0.0",
+  "decription": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Danny Wu <hiunji64@gmail.com>",
+  "license": "MIT",
+  "deploy": "Netlify",
+  "dependencies": {
+    "@prisma/client": "^5.0.0",
+    "@types/node": "^20.4.3",
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security",
+    "imgur": "^2.3.0",
+    "json-server": "^0.17.3"
+  },
+  "scripts": {
+    "json-push":"make -j3 kill-process json-server db-seed"
+  },
+  "devDependencies": {
+    "prisma": "^5.0.0"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  }
+}
