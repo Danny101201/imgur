@@ -3,6 +3,7 @@ import 'dotenv/config'
 import axios, { AxiosRequestConfig } from 'axios'
 import * as fs from 'fs'
 import { createAlbum } from './album';
+import { orderObjKey } from './utils/object';
 
 
 let accessToken = process.env.ACCESS_TOKEN
@@ -130,6 +131,8 @@ const printImageInfoToJson = async () => {
   }
   jsonData += "}}"
   let jsonObj = JSON.parse(jsonData);
+  // order result
+  jsonObj.data = orderObjKey(jsonObj.data)
   let jsonContent = JSON.stringify(jsonObj, null, 2);
   fs.writeFile("output.json", jsonContent, 'utf8', function (err) {
     if (err) {
